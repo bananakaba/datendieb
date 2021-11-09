@@ -6,7 +6,7 @@ This is a project in python as part of a lecture at the Albstadt-Sigmaringen Uni
 
 ## client.py
 
-File that is returning a tree with files placed in home folder.
+File that is returning a tree with files placed in home folder.  
 Also creating a file with list of files sorted by size.
 
 ## server.py
