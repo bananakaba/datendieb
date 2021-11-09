@@ -2,19 +2,19 @@ from pathlib import Path
 import platform
 from datetime import datetime
 
-# prefix components:
-space =  '    '
-branch = '│   '
-# pointers:
-tee =    '├── '
-last =   '└── '
-
-
 def tree(dir_path: Path, prefix: str=''):
     """A recursive generator, given a directory Path object
     will yield a visual tree structure line by line
     with each line prefixed by the same characters
     """ 
+
+    # prefix components:
+    space =  '    '
+    branch = '│   '
+    # pointers:
+    tee =    '├── '
+    last =   '└── '
+
     try:   
         contents = [file for file in dir_path.iterdir() if not file.name.startswith(".")]
         # contents each get pointers that are ├── with a final └── :
