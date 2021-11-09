@@ -39,39 +39,21 @@ def filetype(dir_path: Path, prefix: str=''):
         pass
 
 try:
-    if platform.system() == "Linux":
-        f = open("Source/data/" + datetime.now().strftime("%d_%m_%Y"),"w", encoding="utf-8")
-        for line in tree(Path.home()):
-            #print(line)
-            f.write(line + "\n")
-        f.close()
+    f = open("Source/data/" + datetime.now().strftime("%d_%m_%Y"),"w", encoding="utf-8")
+    for line in tree(Path.home()):
+        #print(line)
+        f.write(line + "\n")
+    f.close()
 
-        files_dict = {}
-        for i in filetype(Path.home()):
-            if i.is_file():
-                files_dict.update({i.name: i.stat().st_size})
-        ordered = {k: v for k, v in sorted(files_dict.items(), key=lambda item: item[1], reverse=True)}
-        f = open("Source/data/" + "files_" + datetime.now().strftime("%d_%m_%Y"),"w", encoding="utf-8")
-        for x, y in ordered.items():
-            f.write(x + "   " + str(y) + "\n")
-        f.close()
-        
-    if platform.system() == "Windows":
-        f = open("Source/data/" + datetime.now().strftime("%d_%m_%Y"),"w", encoding="utf-8")
-        for line in tree(Path.home()):
-            #print(line)
-            f.write(line + "\n")
-        f.close()
-
-        files_dict = {}
-        for i in filetype(Path.home()):
-            if i.is_file():
-                files_dict.update({i.name: i.stat().st_size})
-        ordered = {k: v for k, v in sorted(files_dict.items(), key=lambda item: item[1], reverse=True)}
-        f = open("Source/data/" + "files_" + datetime.now().strftime("%d_%m_%Y"),"w", encoding="utf-8")
-        for x, y in ordered.items():
-            f.write(x + "   " + str(y) + "\n")
-        f.close()
+    files_dict = {}
+    for i in filetype(Path.home()):
+        if i.is_file():
+            files_dict.update({i.name: i.stat().st_size})
+    ordered = {k: v for k, v in sorted(files_dict.items(), key=lambda item: item[1], reverse=True)}
+    f = open("Source/data/" + "files_" + datetime.now().strftime("%d_%m_%Y"),"w", encoding="utf-8")
+    for x, y in ordered.items():
+        f.write(x + "   " + str(y) + "\n")
+    f.close()
     
 except KeyboardInterrupt:
     f.close()
