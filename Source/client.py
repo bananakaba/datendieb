@@ -57,7 +57,21 @@ try:
         f.close()
         
     if platform.system() == "Windows":
-        print("Not supported yet!")
+        f = open("Source/data/" + datetime.now().strftime("%d_%m_%Y"),"w")
+        for line in tree(Path.home()):
+            #print(line)
+            f.write(line + "\n")
+        f.close()
+
+        files_dict = {}
+        for i in filetype(Path.home()):
+            if i.is_file():
+                files_dict.update({i.name: i.stat().st_size})
+        ordered = {k: v for k, v in sorted(files_dict.items(), key=lambda item: item[1], reverse=True)}
+        f = open("Source/data/" + "files_" + datetime.now().strftime("%d_%m_%Y"),"w")
+        for x, y in ordered.items():
+            f.write(x + "   " + str(y) + "\n")
+        f.close()
     
 except KeyboardInterrupt:
     f.close()
