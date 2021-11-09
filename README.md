@@ -2,4 +2,9 @@
 
 ## Allgemein
 
-Hierbei handelt es sich um ein in Python programmiertes Projekt im Rahmen einer Vorlesung der Hochschule Albstadt-Sigmaringen.
+This is a project in python as part of a lecture at the Albstadt-Sigmaringen University of Applied Sciences.
+
+## client.py
+
+File that is returning a tree with files placed in home folder.
+Also creating a file with list of files sorted by size.
