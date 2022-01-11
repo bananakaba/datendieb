@@ -6,9 +6,13 @@ This is a project in python as part of a lecture at the Albstadt-Sigmaringen Uni
 
 ## client.py
 
-File that is returning a tree with files placed in home folder.  
-Also creating a file with list of files sorted by size.
+File to run on the client.
+Should work with Linux and Windows.
+No interaction required, just start the file.
 
 ## server.py
 
-Just a reverse shell, only for filling free space.
+Opening socket for connection to client.
+Give action to perform on the client.
+Creating files with gathered information on server.
+Keeps running after client determines connection and waits for new connection.
