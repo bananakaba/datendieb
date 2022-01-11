@@ -4,9 +4,6 @@ from pathlib import Path
 import socket
 import ssl
 
-HOST = '127.0.0.1'  # The server's hostname or IP address
-PORT = 65432        # The port used by the server
-
 def tree(dir_path: Path, prefix: str=''):
     """A recursive generator, given a directory Path object
     will yield a visual tree structure line by line
