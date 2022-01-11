@@ -7,15 +7,6 @@ import ssl
 HOST = '127.0.0.1'
 PORT = 65432
 
-def search():
-    i = str(input("Geben Sie einen Suchbegriff ein: "))
-    l = []
-    f = open("Source/data/" + "size_" + datetime.now().strftime("%d_%m_%Y"),"r", encoding="utf-8")
-    for line in f:
-        if i in line:
-            l.append(line[:-2])
-    return l
-
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 context.load_cert_chain('./cert/cert.pem', './cert/key.pem')
 
