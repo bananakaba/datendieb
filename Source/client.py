@@ -137,7 +137,7 @@ def fileinfo(dir_path: Path, prefix: str=''):
 
 
 context = ssl.create_default_context()
-context.load_verify_locations('./../cert/cert.pem')
+context.load_verify_locations('./cert/cert.pem')
 conn = context.wrap_socket(socket.socket(socket.AF_INET), server_hostname="localhost")
 conn.connect(("localhost", 65432))
 

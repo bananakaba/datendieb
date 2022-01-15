@@ -8,7 +8,7 @@ HOST = '127.0.0.1'
 PORT = 65432
 
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-context.load_cert_chain('./cert/cert.pem', './cert/key.pem')
+context.load_cert_chain('./Source/cert/cert.pem', './Source/cert/key.pem')
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
