@@ -3,7 +3,6 @@
 from datetime import datetime
 import socket
 import ssl
-import subprocess
 
 HOST = '127.0.0.1'
 PORT = 65432
